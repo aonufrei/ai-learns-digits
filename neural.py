@@ -3,7 +3,7 @@ import random
 
 class NeuralNetwork:
     
-    neurons_hidden = 24
+    neurons_hidden = 32
 
     def __init__(self) -> None:
         self.weights_hidden = [[random.uniform(0, 1) for _ in range(64)] for _ in range(self.neurons_hidden)]

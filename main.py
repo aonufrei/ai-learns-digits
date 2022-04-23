@@ -1,6 +1,5 @@
 from PIL import Image
 import glob
-import os
 import random
 import sys
 import numpy as np
@@ -69,7 +68,7 @@ if __name__ == '__main__':
     counter = 0
     # for x in range(epoch):
     max_of_ten = 1
-    while counter < epoch and max_of_ten >= 0.01:
+    while counter < epoch:
         dif = ai.train(random.choice(dataset), 0.1)
         last.append(abs(dif))
         
@@ -80,8 +79,8 @@ if __name__ == '__main__':
         # correct_results = [x[1] for x in dataset]
         # actual_results = [ai.predict(x[0]) for x in dataset]
         # sys.stdout.write(f'\r Progress: {x + 1}/{epoch}; Training loss: {training_loss(actual_results, correct_results)}')
-        sys.stdout.write(f'\r Epoch: {counter + 1}; error: {max_of_ten}')
         counter += 1
+        sys.stdout.write(f'\r Epoch: {counter + 1}/{epoch}; error: {max_of_ten}')
     
     print()
     print(last[-10:])   
